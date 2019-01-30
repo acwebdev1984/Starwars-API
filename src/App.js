@@ -72,7 +72,7 @@ class App extends Component {
    
      <div>
      <h1 class = "title"> Star Wars API</h1>
-     <h2 class ="subheading"> Use the Buttons to search for Movie data</h2>
+     <h2 class ="subheading"> - Use the Buttons to search - </h2>
      <Button onButtonSelection ={this.onButtonSelection}/>
      {this.card}
      </div> 
