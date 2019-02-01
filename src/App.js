@@ -7,7 +7,7 @@ import PlanetsList from './PlanetsList';
 import PeopleList from './PeopleList';
 import Button from './Button.js';
 import VehiclesList from './VehiclesList.js'
-
+import img from './logo.svg'
 // standard Syntax that allows changes to state ( in this case, i will be changing the state of array [] & selection)
 class App extends Component {
 
@@ -71,7 +71,7 @@ class App extends Component {
     return (
    
      <div>
-     <h1 class = "title"> Star Wars API</h1>
+     <h1 Class = "title"> Star Wars API </h1>
      <h2 class ="subheading"> - Use the Buttons to search - </h2>
      <Button onButtonSelection ={this.onButtonSelection}/>
      {this.card}

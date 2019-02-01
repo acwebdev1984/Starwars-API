@@ -1,3 +1,5 @@
+//Tachyons - Background - Display inline block - border radius - padding - margin - grow/transform
+
 import React from 'react';
 
 const PeopleCard = ({name, gender, height, mass}) =>{

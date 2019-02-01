@@ -4,10 +4,10 @@ const Button = ({onButtonSelection}) => {
 
 
 	return(
-		<div Class = "button">
-	<button  onClick={ () => onButtonSelection('people')}>People</button> 
-	<button  onClick={ () => onButtonSelection('planets')}>Planets</button>
-	<button  onClick={ () => onButtonSelection('vehicles')}>Vehicles</button>
+		<div className = 'button'>
+	<button className = 'br3 pa3 ma2 grow glow' onClick={ () => onButtonSelection('people')}>People</button> 
+	<button className = 'br3 pa3 ma2 grow' onClick={ () => onButtonSelection('planets')}>Planets</button>
+	<button className = 'br3 pa3 ma2 grow' onClick={ () => onButtonSelection('vehicles')}>Vehicles</button>
 		</div>
 );
 }
