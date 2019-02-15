@@ -6,12 +6,14 @@ background-image: url("https://i.pinimg.com/originals/4d/86/a4/4d86a4ed6272538da
 background-image: cover;
 }
 
-.title{
-
+.imgcontainer{
+	position: relative;
 	display: flex;
 	justify-content: center;
+	height: 35vh;
+	width: auto;
+	}
 
-}
 
 .subheading{
 	display: flex;
@@ -29,8 +31,4 @@ background-image: cover;
 }
 
 
-.card{
- 
- backgroun-color: rgba();
 
-}
