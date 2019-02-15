@@ -8,7 +8,7 @@ const PlanetCard = ({name, climate, gravity, terrain}) =>{
 
 	return(
 
-		<div className= 'bg-none dib br3 pa3 ma2 grow'>
+		<div className= 'tc bg-none dib br3 pa3 ma2 grow'>
 
 		<p> Name: {name}</p>
 		<p> Climate: {climate}</p>

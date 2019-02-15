@@ -6,7 +6,7 @@ const PeopleCard = ({name, gender, height, mass}) =>{
 
 	return(
 
-		<div className= 'bg-none dib br3 pa3 ma2 grow'>
+		<div className= 'tc bg-none dib br3 pa3 ma2 grow'>
 
 		<p> Name: {name}</p>
 		<p> Gender: {gender}</p>

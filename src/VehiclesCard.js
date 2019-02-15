@@ -6,7 +6,7 @@ const VehiclesCard = ({name, model, crew, passengers}) =>{
 
 	return(
 
-		<div className= 'bg-none dib br3 pa3 ma2 grow'>
+		<div className= 'tc bg-none dib br3 pa3 ma2 grow'>
 
 		<p> Passengers: {passengers}</p>
 		<p> Model: {model}</p>
