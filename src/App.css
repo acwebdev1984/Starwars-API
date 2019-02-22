@@ -30,5 +30,10 @@ background-image: cover;
 	
 }
 
+.SearchBox {
+	display: flex;
+	justify-content: center;
+	
+}
 
 
