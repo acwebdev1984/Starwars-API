@@ -16,43 +16,44 @@ class App extends Component {
     super()
     this.state = {
       array: [],
-      searchfield: '', 
+      searchfield: 'noSelect', 
       selection: 'noSelect',
     };
   }
 
-// The Below function, accepts a type prop (taken from the button in button.js) and sets the state of the selection, 
+// The Below function, accepts a "type" prop (taken from the button in button.js) and sets the state of the selection, 
 // using this 'type'/prop
  onButtonSelection = (type) => {
   this.setState({selection: type});
 }
 // The below function
 onSearchChange = (event) => {
-  this.setState({searchfield: event.target.value})
+  this.setState({searchfield: event.target.value});
+  }
   
-  const filteredCards = this.state.array.filter(results =>{
-    return(
-      results.name.toLowerCase().includes(this.state.searchfield.toLowerCase())
-      
-      );
-      
-  })
-  console.log(filteredCards);
-}
 
+  
  // filteredcards working for console log. need to figure out how to render : pass the function / maybe an if selection.type === true?? 22.02.2019
 
   render() {
-    const {array, selection} = this.state;
-    // in order to allow other componants, to use the current state of the array/section, 
-    //i have created a variable "array, section" using de-structuring to pass these variables to PeopleList
+   
+    const {array, selection, searchfield} = this.state;
+    const filteredCards = this.state.array.filter(results =>{
+    return(
+      results.name.toLowerCase().includes(this.state.searchfield.toLowerCase())
+      );
+      
+  })
+    
+    // in order to allow other componants, to use the current state of the array/selection, 
+    //i have created a variable "array, section" using de-structuring to pass these variables to PeopleList etc.
     if (this.state.selection ==='planets' ){
           fetch('https://swapi.co/api/planets/') 
       .then(response => response.json())
       .then(data => this.setState({array:data.results}));
       // above I have used "data.results", to specifically set the results section of the array pulled from the API 
       // see https://swapi.co/api/people/ to understand clearly, looking for "results in the return"
-      this.card = <PlanetsList array = {array}/>
+      this.card = <PlanetsList array = {array, filteredCards}/>
       // I have set the PlanetList componant as "card", this is passed as props to render
       // only when planets is the "selection"
      }
@@ -65,7 +66,7 @@ onSearchChange = (event) => {
       .then(data => this.setState({array:data.results}));
       // above I have used "data.results", to specifically set the results section of the array pulled from the API 
       // see https://swapi.co/api/people/ to understand clearly, looking for "results in the return"
-      this.card = <PeopleList array = {array}/>
+      this.card = <PeopleList array = {array, filteredCards}/>
       // I have set the PeopleList componant as "card", this is passed as props to render
       // only when people is the "selection"
      }
@@ -78,13 +79,15 @@ onSearchChange = (event) => {
       .then(data => this.setState({array:data.results}));
       // above I have used "data.results", to specifically set the results section of the array pulled from the API 
       // see https://swapi.co/api/people/ to understand clearly, looking for "results in the return"
-      this.card = <VehiclesList array = {array}/>
-      // I have set the PeopleList componant as "card", this is passed as props to render
+      this.card = <VehiclesList array = {array, filteredCards}/>
+      // I have set the Vehicle componant as "card", this is passed as props to render
       // only when people is the "selection"
      }
+
+     
       
     return (
-   
+         
      <div className = "container">
      <div className = "imgcontainer">
      <img src={logo} alt = "title" />

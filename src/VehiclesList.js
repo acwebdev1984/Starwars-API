@@ -3,7 +3,7 @@ import VehiclesCard from './VehiclesCard'
 
 
 
-const VehiclesList = ({array}) => {
+const VehiclesList = ({array, filteredCards}) => {
 // The planetList accepts array as an argument from App.js allowing us to use the API data.
 	return (
 

@@ -3,7 +3,7 @@ import PeopleCard from './PeopleCard'
 
 
 
-const PeopleList = ({array}) => {
+const PeopleList = ({array, filteredCards}) => {
 
 	return (
 
