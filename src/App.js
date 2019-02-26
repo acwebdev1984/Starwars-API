@@ -8,7 +8,7 @@ import PeopleList from './PeopleList';
 import Button from './Button.js';
 import VehiclesList from './VehiclesList.js'
 import logo from './logo.svg'
-import SearchBox from './SearchBox.js'
+//import SearchBox from './SearchBox.js'//
 // standard Syntax that allows changes to state ( in this case, i will be changing the state of array [] & selection)
 class App extends Component {
 
@@ -26,14 +26,12 @@ class App extends Component {
  onButtonSelection = (type) => {
   this.setState({selection: type});
 }
-// The below function
+// The below function accepts an event that sets the state based on whats entered in the searchfield
 onSearchChange = (event) => {
   this.setState({searchfield: event.target.value});
   }
   
-
-  
- // filteredcards working for console log. need to figure out how to render : pass the function / maybe an if selection.type === true?? 22.02.2019
+ 
 
   render() {
    
@@ -53,20 +51,22 @@ onSearchChange = (event) => {
       .then(data => this.setState({array:data.results}));
       // above I have used "data.results", to specifically set the results section of the array pulled from the API 
       // see https://swapi.co/api/people/ to understand clearly, looking for "results in the return"
-      this.card = <PlanetsList array = {array, filteredCards}/>
+      this.card = <PlanetsList array = {array}/>
+  
       // I have set the PlanetList componant as "card", this is passed as props to render
       // only when planets is the "selection"
      }
 
      else if 
 
-      (this.state.selection ==='people' ){
+      (this.state.selection ==='people'){
           fetch('https://swapi.co/api/people/') 
       .then(response => response.json())
       .then(data => this.setState({array:data.results}));
       // above I have used "data.results", to specifically set the results section of the array pulled from the API 
       // see https://swapi.co/api/people/ to understand clearly, looking for "results in the return"
-      this.card = <PeopleList array = {array, filteredCards}/>
+      this.card = <PeopleList array = {array}/>
+        
       // I have set the PeopleList componant as "card", this is passed as props to render
       // only when people is the "selection"
      }
@@ -79,7 +79,7 @@ onSearchChange = (event) => {
       .then(data => this.setState({array:data.results}));
       // above I have used "data.results", to specifically set the results section of the array pulled from the API 
       // see https://swapi.co/api/people/ to understand clearly, looking for "results in the return"
-      this.card = <VehiclesList array = {array, filteredCards}/>
+      this.card = <VehiclesList array = {array}/>
       // I have set the Vehicle componant as "card", this is passed as props to render
       // only when people is the "selection"
      }
@@ -87,14 +87,14 @@ onSearchChange = (event) => {
      
       
     return (
-         
+
      <div className = "container">
      <div className = "imgcontainer">
      <img src={logo} alt = "title" />
      </div>
      <h2 className ="subheading"> - Use the Buttons to search Catergories - </h2>
      <Button onButtonSelection ={this.onButtonSelection}/>
-     <SearchBox searchChange = {this.onSearchChange}/>
+    
      {this.card}
 
       
@@ -102,7 +102,7 @@ onSearchChange = (event) => {
     // using this.card, to render the componant, relavent to the conditional if else statement
     );
 
-
+ //<SearchBox searchChange = {this.onSearchChange}/> REMOVED SEARCHBOX AS UNABLE TO GET WORKING
   
     }
 
